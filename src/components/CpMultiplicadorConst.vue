@@ -1,10 +1,28 @@
 <template>
 <div class="cm">
     <h1>{{ msg }}</h1>
-    <label for="semilla">Semilla</label>
-    <input type="text" id="semilla" v-model="semilla" v-on:keyup="generateNums">
-    <label for="constante">Constante</label>
-       <input type="text" id="constante" v-model="constante">
+      <div class="data-input">
+        <div class="child">
+          <b-form-group
+        label="Semilla:"
+        label-for="semilla"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="semilla" v-model="semilla" v-on:keyup="generateNums"></b-form-input>
+       </b-form-group>
+          <b-form-group
+        label="Constante:"
+        label-for="constnate"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="constante" v-model="constante"></b-form-input>
+         </b-form-group>
+         </div>
+      </div>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
 </div>
 </template>
@@ -90,5 +108,13 @@ li {
 }
 a {
   color: #42b983;
+}
+.data-input{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.child{
+  margin: 0 auto;
 }
 </style>

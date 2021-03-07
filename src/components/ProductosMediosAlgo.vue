@@ -1,11 +1,29 @@
 <template>
 <div class="cm">
     <h1>{{ msg }}</h1>
-    <label for="X0">X0</label>
-    <input type="text" id="X0" v-model="valX0">
-    <label for="X1">X1</label>
-    <input type="text" id="X1" v-model="valX1">
-    <button v-on:click="pma">Go!</button>
+   <div class="data-input">
+        <div class="child">
+          <b-form-group
+        label="X0:"
+        label-for="semilla"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="X0" v-model="valX0"></b-form-input>
+       </b-form-group>
+          <b-form-group
+        label="X1:"
+        label-for="X1"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="X1" v-model="valX1"></b-form-input>
+         </b-form-group>
+          <b-button variant="primary" size="lg" v-on:click="pma">Go!</b-button>
+         </div>
+      </div>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
 </div>
 </template>
@@ -95,5 +113,13 @@ li {
 }
 a {
   color: #42b983;
+}
+.data-input{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.child{
+  margin: 0 auto;
 }
 </style>

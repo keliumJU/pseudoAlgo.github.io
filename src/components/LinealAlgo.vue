@@ -1,15 +1,47 @@
 <template>
 <div class="la">
     <h1>{{ msg }}</h1>
-    <label for="x0">X0</label>
-    <input type="text" v-model="valX0">
-    <label for="a">a</label>
-    <input type="text" v-model="valA">
-    <label for="c">c</label>
-    <input type="text" v-model="valC">
-    <label for="m">m</label>
-    <input type="text" v-model="valM">
-    <button v-on:click="linealAlgorithm">go</button>
+   <div class="data-input">
+        <div class="child">
+          <b-form-group
+        label="X0:"
+        label-for="semilla"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="X0" v-model="valX0"></b-form-input>
+       </b-form-group>
+          <b-form-group
+        label="a:"
+        label-for="a"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="a" v-model="valA"></b-form-input>
+         </b-form-group>
+    <b-form-group
+        label="c:"
+        label-for="c"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="c" v-model="valC"></b-form-input>
+         </b-form-group>
+    <b-form-group
+        label="m:"
+        label-for="m"
+        label-cols-sm="4"
+        content-cols-sm="4"
+        label-align-sm="right"
+      >
+        <b-form-input type="text" id="m" v-model="valM"></b-form-input>
+         </b-form-group>
+          <b-button variant="primary" size="lg" v-on:click="linealAlgorithm">Go!</b-button>
+         </div>
+      </div>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
 </div>
 </template>
@@ -89,4 +121,13 @@ li {
 a {
   color: #42b983;
 }
+.data-input{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.child{
+  margin: 0 auto;
+}
+
 </style>
