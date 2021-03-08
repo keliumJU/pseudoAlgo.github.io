@@ -13,8 +13,10 @@
       <li>
         Productos Medios 
       </li>
-      <li>Multiplicador Constante</li>
+      <li>Multiplicador Constante</li><br>
       <li>Algoritmo Lineal</li>
+      <li>Congruencial Aditivo</li>
+      <li>Congruencial Multiplicativo</li>
     </ul>
       </div>
 </template>
