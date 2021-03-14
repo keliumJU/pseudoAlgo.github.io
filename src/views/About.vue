@@ -14,7 +14,7 @@
         <b-card-text>
           Estudiante poco apasionado de sistemas. 
         </b-card-text>
-        <b-button href="#" variant="primary">Go somewhere</b-button>
+        <b-button href="https://github.com/keliumJU" target="_blank" variant="primary">Go somewhere</b-button>
       </b-card>
     </div>
     <div class="cart-ab">
@@ -30,7 +30,7 @@
         <b-card-text>
           Estudiante aun mas poco apasionado de sistemas. 
         </b-card-text>
-        <b-button href="#" variant="primary">Go somewhere</b-button>
+        <b-button  href="https://github.com/Edijosmen" target="_blank" variant="primary">Go somewhere</b-button>
       </b-card>
     </div>
     <div class="cart-ab">
@@ -46,7 +46,7 @@
         <b-card-text>
           Estudiante poco apasionado de sistemas que dice ser del grupo.
         </b-card-text>
-        <b-button href="#" variant="primary">Go somewhere</b-button>
+        <b-button href="https://github.com/luis-carlos-jo" target="_blank" variant="primary">Go somewhere</b-button>
       </b-card>
     </div>
 <div class="cart-cent">

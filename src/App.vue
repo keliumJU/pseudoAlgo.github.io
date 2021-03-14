@@ -1,19 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/cuadrados-medios">Cuadrados Medios</router-link> |
-      <router-link to="/productos-medios">Productos Medios</router-link> |
-      <router-link to="/lineal-algo">Lineal Algoritmo</router-link> | 
-      <router-link to="/congruencial-aditivo">Congruencial Aditivo</router-link> | 
-      <router-link to="/congruencial-multiplicativo">Congruencial Multiplicativo</router-link> | 
-      <router-link to="/multiplicador-constante">MultiplicadorConstante</router-link> |
-      
-      <router-link to="/about">About</router-link>
-    </div>
+    <Head/>
+    <br>
+    <br>
+    <br>
+    <br>
     <router-view />
+    <Footer/>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Head from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
+export default {
+  name: "App",
+  components: {
+    Head,
+    Footer
+  }
+};
+</script>
 
 <style>
 #app {
