@@ -57,11 +57,14 @@ By using our website, you hereby consent to our privacy policy and agree to its 
 <script>
 // @ is an alias to /src
 
-import { BModal} from "bootstrap-vue";
+import { BModal, VBModal} from "bootstrap-vue";
 export default {
   name: "Privacy",
   components:{
     BModal
+  },
+  directives:{
+      'b-modal':VBModal
   }
 };
 </script>

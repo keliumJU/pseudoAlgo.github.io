@@ -264,12 +264,15 @@
 
 <script>
 // @ is an alias to /src
-import { BModal} from "bootstrap-vue";
+import { BModal, VBModal} from "bootstrap-vue";
 
 export default {
   name: "TermsConditions",
   components:{
       BModal
+  },
+  directives:{
+      'b-modal':VBModal
   }
 };
 </script>

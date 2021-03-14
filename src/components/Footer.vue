@@ -37,10 +37,8 @@
           <li>
               <terms-conditions/>
           </li>
-          <li><a v-b-modal.site-map variant="primary">Site Map</a>
-  <b-modal id="site-map" size="lg" title="Site Map">
-      <img src="https://dynomapper.com/images/tree_sitemap_style.jpg" alt="site-map-example">
-  </b-modal>
+          <li>
+              <site-map/>
           </li>
           <li><a><router-link to="/about">Contact Us</router-link></a></li>
         </ul>
@@ -69,13 +67,18 @@ import { BIcon } from "bootstrap-vue";
 import Privacy  from "./Privacy.vue";
 //import {TermsConditions} from "@/components/TermnsConditions.vue";
 import TermsConditions from './TermsConditions.vue';
+import SiteMap from './SiteMap.vue';
 export default {
   name: "Footer",
   components: {
     BIcon,
     Privacy,
     TermsConditions,
+    SiteMap,
   },
+  directives:{
+      'b-icon':BIcon
+  }
 };
 </script>
 
