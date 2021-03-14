@@ -5,21 +5,21 @@
         <ul>
           <li class="col-heading">Location Data</li>
           <li>
-            <b-icon icon="telephone-fill"></b-icon
-            ><a href="tel:3203719763">3203719763</a>
+              <b-icon-telephone-fill></b-icon-telephone-fill>
+            <a href="tel:3203719763">3203719763</a>
           </li>
           <li>
-            <b-icon icon="chat-text-fill"></b-icon
-            ><a href="sms:3203719763">SMS Message</a>
+              <b-icon-chat-text-fill></b-icon-chat-text-fill>
+            <a href="sms:3203719763">SMS Message</a>
           </li>
           <li>
-            <b-icon icon="geo-alt-fill"></b-icon
-            ><a href="https://goo.gl/maps/VB94qdzGTgo554JUA" target="_blank"
+              <b-icon-geo-alt-fill></b-icon-geo-alt-fill>
+            <a href="https://goo.gl/maps/VB94qdzGTgo554JUA" target="_blank"
               >Address</a
             >
           </li>
           <li>
-            <b-icon icon="mailbox2"></b-icon>
+              <b-icon-mailbox2></b-icon-mailbox2>
             <a href="mailto:zeyeju@gmail.com?subject=Email Subject line"
               >Email Us</a
             >
@@ -63,21 +63,23 @@
 
 <script>
 //import { } from 'bootstrap-vue'
-import { BIcon } from "bootstrap-vue";
+//Nuevos iconos agregados
+import {BIconTelephoneFill,BIconChatTextFill,BIconGeoAltFill, BIconMailbox2} from "bootstrap-vue";
 import Privacy  from "./Privacy.vue";
 //import {TermsConditions} from "@/components/TermnsConditions.vue";
 import TermsConditions from './TermsConditions.vue';
 import SiteMap from './SiteMap.vue';
+
 export default {
   name: "Footer",
   components: {
-    BIcon,
     Privacy,
     TermsConditions,
     SiteMap,
-  },
-  directives:{
-      'b-icon':BIcon
+    BIconTelephoneFill,
+    BIconChatTextFill,
+    BIconGeoAltFill,
+    BIconMailbox2
   }
 };
 </script>
