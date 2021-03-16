@@ -1,30 +1,38 @@
 <template>
-<div class="cm">
-    <h1>{{ msg }}</h1>
-      <div class="data-input">
-        <div class="child">
-          <b-form-group
-        label="Semilla:"
-        label-for="semilla"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="semilla" v-model="semilla" v-on:keyup="generateNums"></b-form-input>
-       </b-form-group>
-          <b-form-group
-        label="Constante:"
-        label-for="constnate"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="constante" v-model="constante"></b-form-input>
-         </b-form-group>
-         </div>
-      </div>
+<div>
+<h1>{{ msg }}</h1>
+<v-app>
+<v-card class="mx-auto mt-10" max-width="600">
+        <v-card-title>Ingresa los valores para el algoritmo <br>Multiplicador Constante</v-card-title>
+        <v-card-text>
+            <v-form>
+                <v-text-field
+                    v-model="semilla"
+                    label="Semilla"
+                    :rules="sRul"
+                    error-count="2"
+                    required
+                ></v-text-field>
+                <v-text-field
+                    v-model="constante"
+                    label="constante"
+                    :rules="cRul"
+                    error-count="2"
+                    required
+                ></v-text-field>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+            <v-btn v-on:click="generateNums" color="primary">
+                Go 
+            </v-btn>
+        </v-card-actions>
+    </v-card>
+    <br>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
-</div>
+    </v-app>
+    </div>
+
 </template>
 
 <script>
@@ -35,6 +43,16 @@ export default {
   },
   data(){
     return {
+       sRul:[
+          (v)=>!!v||"Semilla es requerida",
+          (v) => (v&&v.length>=3) || 'El numero debe tener minimo 3 caracteres',
+          (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+       ],
+       cRul:[
+          (v)=>!!v||"Constante k es requerida",
+          (v) => (v&&v.length>=3) || 'El numero debe tener minimo 3 caracteres',
+          (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+       ],
       semilla: 0,
       constante: 0,
       fields:[

@@ -1,40 +1,44 @@
 <template>
-<div class="la">
-    <h1>{{ msg }}</h1>
-   <div class="data-input">
-        <div class="child">
-          <b-form-group
-        label="X0:"
-        label-for="semilla"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="X0" v-model="valX0"></b-form-input>
-       </b-form-group>
-          <b-form-group
-        label="a:"
-        label-for="a"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="a" v-model="valA"></b-form-input>
-         </b-form-group>
-    <b-form-group
-        label="m:"
-        label-for="m"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="m" v-model="valM"></b-form-input>
-         </b-form-group>
-          <b-button variant="primary" size="lg" v-on:click="linealAlgorithm">Go!</b-button>
-         </div>
-      </div>
+<div>
+<h1>{{ msg }}</h1>
+<v-app>
+<v-card class="mx-auto mt-10" max-width="600">
+        <v-card-title>Ingresa los valores para el algoritmo<br> Congruencial Multiplicativo</v-card-title>
+        <v-card-text>
+            <v-form>
+                <v-text-field
+                    v-model="valX0"
+                    label="X0"
+                    :rules="X0Rules"
+                    error-count="2"
+                    required
+                ></v-text-field>
+                <v-text-field
+                    v-model="valA"
+                    label="A"
+                    :rules="ARules"
+                    error-count="3"
+                    required
+                ></v-text-field>
+                  <v-text-field
+                    v-model="valM"
+                    label="M"
+                    :rules="MRules"
+                    error-count="3"
+                    required
+                ></v-text-field>
+                </v-form>
+        </v-card-text>
+        <v-card-actions>
+            <v-btn v-on:click="linealAlgorithm" color="primary">
+                Go 
+            </v-btn>
+        </v-card-actions>
+    </v-card>
+    <br>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
-</div>
+    </v-app>
+    </div>
 </template>
 
 <script>
@@ -45,6 +49,21 @@ export default {
   },
   data(){
     return {
+      X0Rules:[
+        (v)=>!!v||"X0 es requerido",
+        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        (v)=>v&&v%2==1||"X0 debe ser impar"
+      ],
+      ARules:[
+        (v)=>!!v||"A es requerido",
+        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        (v)=>this.despejarK(v),
+      ],
+      MRules:[        
+        (v) => !!v || "M Es requerido",
+        (v) => this.despejarM(v),
+        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+      ],
       valX0: 0,
       valA:0,
       valM:0,
@@ -78,6 +97,27 @@ export default {
     }
   },
   methods: {
+    despejarM: function(val){
+      val=parseInt(this.valM)
+      let logVal=Math.log2(val)
+       if(logVal%1==0){
+          let compareLogPow=Math.pow(2,logVal)
+          if(compareLogPow==val){
+            return true;
+          }
+       }
+      return `"${val}" no se cumple en m=2^g`
+    },
+    despejarK: function(val){
+      //DespejamosK de la formula a=1+4K
+      //a-1=4.k => (a-1)/4=k
+       let k=(val-3)/8
+       let k2=(val-5)/8
+       if(k%1==0||k2%1==0){
+         return true
+       }
+      return `"${val}" no se cumple en a=3+8k o a=5+8k` 
+    },
     linealAlgorithm: function(){
         this.valX0=parseInt(this.valX0)
         this.valA=parseInt(this.valA)

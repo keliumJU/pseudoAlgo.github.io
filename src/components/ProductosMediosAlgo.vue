@@ -1,31 +1,37 @@
 <template>
-<div class="cm">
-    <h1>{{ msg }}</h1>
-   <div class="data-input">
-        <div class="child">
-          <b-form-group
-        label="X0:"
-        label-for="semilla"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="X0" v-model="valX0"></b-form-input>
-       </b-form-group>
-          <b-form-group
-        label="X1:"
-        label-for="X1"
-        label-cols-sm="4"
-        content-cols-sm="4"
-        label-align-sm="right"
-      >
-        <b-form-input type="text" id="X1" v-model="valX1"></b-form-input>
-         </b-form-group>
-          <b-button variant="primary" size="lg" v-on:click="pma">Go!</b-button>
-         </div>
-      </div>
+<div>
+<h1>{{ msg }}</h1>
+<v-app>
+<v-card class="mx-auto mt-10" max-width="600">
+        <v-card-title>Ingresa los valores para el algoritmo<br> Productos Medios</v-card-title>
+        <v-card-text>
+            <v-form>
+                <v-text-field
+                    v-model="valX0"
+                    label="X0"
+                    :rules="rule"
+                    error-count="3"
+                    required
+                ></v-text-field>
+                 <v-text-field
+                    v-model="valX1"
+                    label="X1"
+                    :rules="rule"
+                    error-count="3"
+                    required
+                ></v-text-field>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+            <v-btn v-on:click="pma" color="primary">
+                Go 
+            </v-btn>
+        </v-card-actions>
+    </v-card>
+    <br>
     <b-table striped hover :fields="fields" :items="items" ></b-table>
-</div>
+    </v-app>
+    </div>
 </template>
 
 <script>
@@ -36,6 +42,11 @@ export default {
   },
   data(){
     return {
+      rule:[
+        (v)=>!!v||`Xn es requerido`,
+        (v) => (v&&v.length>=3) || 'El numero debe tener minimo 3 caracteres',
+        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+      ],
         valX0:0,
         valX1:0,
       fields:[
@@ -74,8 +85,8 @@ export default {
   },
   methods: {
     pma: function(){
-        this.valX0=parseInt(this.valX0);
-        this.valX1=parseInt(this.valX1);
+        //this.valX0=parseInt(this.valX0);
+        //this.valX1=parseInt(this.valX1);
         this.items[0].Xn=0;
         this.items[1].Xn=1;
         this.items[0].subSemilla=this.valX0;
@@ -113,13 +124,5 @@ li {
 }
 a {
   color: #42b983;
-}
-.data-input{
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
-.child{
-  margin: 0 auto;
 }
 </style>
