@@ -25,6 +25,12 @@
         <b-dropdown-item to="/multiplicador-constante">
             Multiplicador Constante
         </b-dropdown-item>
+       <b-dropdown-item to="/congruencial-cuadratico">
+            Congruencial Cuadratico 
+        </b-dropdown-item>
+       <b-dropdown-item to="/blum-blumShub">
+            Blum Blum y Shub 
+        </b-dropdown-item>
       </b-nav-item-dropdown>
 
       <b-nav-item-dropdown text="Propieadades" right>

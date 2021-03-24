@@ -72,13 +72,25 @@ const routes = [
   },
    {
       path: "/congruencial-multiplicativo",
-      name: "congruencialMultiplicativo",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      name: "CongruencialMultiplicativo",
+
       component: function() {
         return import(/* webpackchunkname: "about" */ "../views/CongruencialMultiplicativo.vue");
       }
+  },
+  {
+    path:"/congruencial-cuadratico",
+    name:"CongruencialCuadratico",
+    component: function(){
+      return import("../views/CongruencialCuadratico.vue")
+    }
+  },
+  {
+    path:"/blum-blumShub",
+    name:"BlumBlumYShub",
+    component: function(){
+      return import("../views/BlumBlumYshub.vue")
+    }
   }
 ];
 
