@@ -91,7 +91,14 @@ const routes = [
     component: function(){
       return import("../views/BlumBlumYshub.vue")
     }
-  }
+  },
+  {
+    path:"/propiedades",
+    name:"propiedadesNa",
+    component: function(){
+      return import("../views/PropiedadesNa.vue")
+    }
+  },
 ];
 
 const router = new VueRouter({

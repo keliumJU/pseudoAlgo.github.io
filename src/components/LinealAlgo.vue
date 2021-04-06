@@ -1,57 +1,74 @@
 <template>
-<div>
-<h1>{{ msg }}</h1>
-<v-app>
-<v-card class="mx-auto mt-10" max-width="600">
-        <v-card-title>Ingresa los valores para el<br> algoritmo lineal</v-card-title>
-        <v-card-text>
-            <v-form>
-                <v-text-field
+  <div>
+    <v-app>
+  <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+    <h1>{{ msg }}</h1>
+      <v-container>
+        <v-row>
+          <v-col>
+            <v-card class="mx-auto mt-10" max-width="400" elevation="24" tile>
+              <v-card-title
+                >Ingresa los valores para el<br />
+                algoritmo lineal</v-card-title
+              >
+              <v-card-text>
+                <v-form>
+                  <v-text-field
                     v-model="valX0"
                     label="X0"
                     :rules="X0Rules"
                     error-count="2"
                     required
-                ></v-text-field>
-                <v-text-field
+                  ></v-text-field>
+                  <v-text-field
                     v-model="valA"
                     label="A"
                     :rules="ARules"
                     error-count="3"
                     required
-                ></v-text-field>
+                  ></v-text-field>
                   <v-text-field
                     v-model="valM"
                     label="M"
                     :rules="MRules"
                     error-count="3"
                     required
-                ></v-text-field>
-                <v-text-field
+                  ></v-text-field>
+                  <v-text-field
                     v-model="valC"
                     label="C"
                     :rules="CRules"
                     error-count="3"
                     required
-                ></v-text-field>
+                  ></v-text-field>
                 </v-form>
-        </v-card-text>
-        <v-card-actions>
-            <v-btn v-on:click="linealAlgorithm" color="primary">
-                Go 
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn v-on:click="linealAlgorithm" color="primary"> Go </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col>
+            <Propiedades :itemsp="items"/>
+          </v-col>
+        </v-row>
+      </v-container>
+    <b-table striped hover :fields="fields" :items="items" class="mx-auto"></b-table>
     <br>
-    <b-table striped hover :fields="fields" :items="items" ></b-table>
+    <Exceloper :numsAle="items" nameFile="linealAlgo"/>
     </v-app>
-    </div>
+  </div>
 </template>
 
 <script>
-
+import Propiedades from "@/components/prueba-estadistica/Propiedades.vue";
+import Exceloper from "@/components/import-export-excel/exceloper.vue";
 export default {
   name: "LinealAlgo",
+  components: {
+    Propiedades,
+    Exceloper,
+  },
   props: {
     msg: String,
   },
@@ -66,12 +83,12 @@ export default {
         (v) => this.despejarK(v),
         (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
       ],
-      MRules:[
+      MRules: [
         (v) => !!v || "M Es requerido",
         (v) => this.despejarM(v),
         (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
       ],
-      CRules:[
+      CRules: [
         (v) => !!v || "C Es requerido",
         (v) => this.relativePrime(v),
         (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
@@ -110,78 +127,81 @@ export default {
     };
   },
   methods: {
-    despejarK: function(val){
+    despejarK: function (val) {
       //DespejamosK de la formula a=1+4K
       //a-1=4.k => (a-1)/4=k
-       let k=(val-1)/4
-       if(k%1==0){
-         return true
-       }
-      return `"${val}" no se cumple en a=1+4k` 
-    },       
-    relativePrime: function(val){
+      let k = (val - 1) / 4;
+      if (k % 1 == 0) {
+        return true;
+      }
+      return `"${val}" no se cumple en a=1+4k`;
+    },
+    relativePrime: function (val) {
       //validar c si es relativamente primo a m solo para numeros menores a 100
       //Es relativamente primo si solo el numero 1 es su primo en comun
       //val=parseInt(this.valC)
-      let factores=[]
-      for(let i=1; i<val; i++){
-        if(val%i==0){
+      let factores = [];
+      for (let i = 1; i < val; i++) {
+        if (val % i == 0) {
           factores.push(i);
         }
       }
-      for(let i=1; i<this.valM; i++){
-        if(this.valM%i==0){
+      for (let i = 1; i < this.valM; i++) {
+        if (this.valM % i == 0) {
           factores.push(i);
         }
       }
 
       //si no tienen otro divisor común más que 1 y -1.
       // Equivalentemente son primos entre sí, si y sólo si, su máximo común divisor es igual a 1.
-      let counts={}
+      let counts = {};
 
-      for(let i=0; i<factores.length; i++){
-        if(counts[factores[i]]){
-          counts[factores[i]]+=1;
-          if(counts[factores[i]]>1&&factores[i]!=1){
-          return `"${val}" no es relativamente primo a "${this.valM}"`;
-        }
-        }else{
-          counts[factores[i]]=1
-        }
-        
-      }
-      return true; 
-    },
-    despejarM: function(val){
-      val=parseInt(this.valM)
-      let logVal=Math.log2(val)
-       if(logVal%1==0){
-          let compareLogPow=Math.pow(2,logVal)
-          if(compareLogPow==val){
-            return true;
+      for (let i = 0; i < factores.length; i++) {
+        if (counts[factores[i]]) {
+          counts[factores[i]] += 1;
+          if (counts[factores[i]] > 1 && factores[i] != 1) {
+            return `"${val}" no es relativamente primo a "${this.valM}"`;
           }
-       }
-      return `"${val}" no se cumple en m=2^g`
+        } else {
+          counts[factores[i]] = 1;
+        }
+      }
+      return true;
     },
-   fillArray: function(m){
-     for(let i=0; i<m-10; i++){
-       this.items.push({Xn:0, formula:0, num:0})
-     }
-   },
-   linealAlgorithm: function () {
+    despejarM: function (val) {
+      val = parseInt(this.valM);
+      let logVal = Math.log2(val);
+      if (logVal % 1 == 0) {
+        let compareLogPow = Math.pow(2, logVal);
+        if (compareLogPow == val) {
+          return true;
+        }
+      }
+      return `"${val}" no se cumple en m=2^g`;
+    },
+    fillArray: function (m) {
+      for (let i = 0; i < m - 10; i++) {
+        this.items.push({ Xn: 0, formula: 0, num: 0 });
+      }
+    },
+    financial:function(x) {
+      return Number.parseFloat(x).toFixed(3);
+    },
+    linealAlgorithm: function () {
       this.valX0 = parseInt(this.valX0);
       this.valA = parseInt(this.valA);
       this.valC = parseInt(this.valC);
       this.valM = parseInt(this.valM);
-      if(this.valM>10){
-        this.fillArray(this.valM) 
+      if (this.valM > 10) {
+        this.fillArray(this.valM);
       }
       this.items[0].formula = this.valX0;
       for (let i = 1; i <= this.valM; i++) {
         this.items[i].Xn = i;
-        var formulaVal = (this.valA * this.items[i - 1].formula + this.valC) % this.valM;
+        var formulaVal =
+          (this.valA * this.items[i - 1].formula + this.valC) % this.valM;
         this.items[i].formula = formulaVal;
-        this.items[i].num = this.items[i].formula / (this.valM - 1);
+        this.items[i].num = this.financial(this.items[i].formula / (this.valM - 1));
       }
     },
   },

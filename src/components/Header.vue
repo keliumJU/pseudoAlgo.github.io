@@ -33,10 +33,7 @@
         </b-dropdown-item>
       </b-nav-item-dropdown>
 
-      <b-nav-item-dropdown text="Propieadades" right>
-        <b-dropdown-item href="#">Media</b-dropdown-item>
-        <b-dropdown-item href="#">Varianza</b-dropdown-item>
-      </b-nav-item-dropdown>
+      <b-nav-item to="/propiedades">Propiedades</b-nav-item>
 
       <b-nav-item to="/about">About</b-nav-item>
     </b-navbar-nav>
