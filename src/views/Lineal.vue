@@ -1,6 +1,6 @@
 <template>
   <div class="lineal-algo">
-    <LinealAlgo msg="Welcome to Lineal Algorithm" />
+    <LinealAlgo msg="Welcome to Lineal Algorithm" style="background-color:blueviolet;"/>
   </div>
 </template>
 <script>
@@ -14,3 +14,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.lienal-algo{
+  background-color:blueviolet;
+}
+</style>

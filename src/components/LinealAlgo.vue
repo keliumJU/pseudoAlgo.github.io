@@ -1,15 +1,17 @@
 <template>
-  <div>
-    <v-app>
-  <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
-    <h1>{{ msg }}</h1>
-      <v-container>
-        <v-row>
+  <v-app>
+    <v-container>
+      <v-row>
+        <v-col>
+          <h1 class="myfont">{{ msg }}</h1>
+        </v-col>
+      </v-row>
+    <!--  <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">-->
+        <v-row class="justify-center pa-10" style="background-color:blue;">
           <v-col>
-            <v-card class="mx-auto mt-10" max-width="400" elevation="24" tile>
-              <v-card-title
-                >Ingresa los valores para el<br />
-                algoritmo lineal</v-card-title
+            <v-card class="pa-0">
+              <v-card-title class="justify-center"
+                >Ingresa los valores para el algoritmo lineal</v-card-title
               >
               <v-card-text>
                 <v-form>
@@ -49,25 +51,37 @@
             </v-card>
           </v-col>
           <v-col>
-            <Propiedades :itemsp="items"/>
+            <Propiedades :itemsp="items" />
+          </v-col>
+          <v-col>
+            <Propiedades :itemsp="items" />
           </v-col>
         </v-row>
-      </v-container>
-    <b-table striped hover :fields="fields" :items="items" class="mx-auto"></b-table>
-    <br>
-    <Exceloper :numsAle="items" nameFile="linealAlgo"/>
-    </v-app>
-  </div>
+      <!--</v-parallax>-->
+      <v-row>
+        <v-col class="rounded-md pa-4 ma-2">
+          <TablaDim
+            :desserts="items"
+            :headers="headers"
+            namefile="linealAlgo"
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!--<b-table striped hover :fields="fields" :items="items" class="mx-auto"></b-table>-->
+  </v-app>
 </template>
 
 <script>
 import Propiedades from "@/components/prueba-estadistica/Propiedades.vue";
-import Exceloper from "@/components/import-export-excel/exceloper.vue";
+import TablaDim from "@/components/tabla-dinamica/TablaDim.vue";
+
 export default {
   name: "LinealAlgo",
   components: {
     Propiedades,
-    Exceloper,
+    TablaDim,
   },
   props: {
     msg: String,
@@ -97,18 +111,19 @@ export default {
       valA: 0,
       valC: 0,
       valM: 0,
-      fields: [
+      headers: [
         {
-          key: "Xn",
-          label: "N~",
+          text: "N~",
+          align: "start",
+          value: "Xn",
         },
         {
-          key: "formula",
-          label: "(aXn+c)mod(m)",
+          text: "(aXn+c)mod(m)",
+          value: "formula",
         },
         {
-          key: "num",
-          label: "Numero Aleatorio",
+          text: "Numero Aleatorio",
+          value: "num",
         },
       ],
       items: [
@@ -184,7 +199,7 @@ export default {
         this.items.push({ Xn: 0, formula: 0, num: 0 });
       }
     },
-    financial:function(x) {
+    financial: function (x) {
       return Number.parseFloat(x).toFixed(3);
     },
     linealAlgorithm: function () {
@@ -201,7 +216,9 @@ export default {
         var formulaVal =
           (this.valA * this.items[i - 1].formula + this.valC) % this.valM;
         this.items[i].formula = formulaVal;
-        this.items[i].num = this.financial(this.items[i].formula / (this.valM - 1));
+        this.items[i].num = this.financial(
+          this.items[i].formula / (this.valM - 1)
+        );
       }
     },
   },

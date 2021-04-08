@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" style="background-color:red;">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
     <Head/>
     <br>
     <br>
@@ -44,5 +45,8 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.myfont{
+  font-family: 'Brush Script MT', cursive;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-      <v-card class="mx-auto mt-10" max-width="400" elevation="24" tile>
-        <v-card-title>Pruebas estadisticas</v-card-title>
+      <v-card class="pa-0">
+        <v-card-title class="justify-center">Pruebas estadisticas</v-card-title>
         <v-card-text>
-          <v-list-item three-line>
+          <v-list-item >
             <v-list-item-content>
               <v-list-item-title>Media</v-list-item-title>
               <v-list-item-subtitle>
@@ -10,9 +10,8 @@
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-
           <v-divider></v-divider>
-          <v-list-item three-line>
+          <v-list-item >
             <v-list-item-content>
               <v-list-item-title>Varianza</v-list-item-title>
               <v-list-item-subtitle>
@@ -21,7 +20,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item three-line>
+          <v-list-item>
             <v-list-item-content>
               <v-list-item-title>Prueba Chi-Cuadrada</v-list-item-title>
               <v-list-item-content>
@@ -29,6 +28,7 @@
               </v-list-item-content>
             </v-list-item-content>
           </v-list-item>
+          <v-divider></v-divider>
         </v-card-text>
         <v-card-actions>
         </v-card-actions>
