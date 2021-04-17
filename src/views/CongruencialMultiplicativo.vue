@@ -1,6 +1,9 @@
 <template>
   <div class="lineal-algo">
-    <CongruencialMultiplicativoAlgo msg="Welcome to Congruencial Multiplicativo Algorithm" />
+    <CongruencialMultiplicativoAlgo
+      msg="Welcome to Congruencial Multiplicativo Algorithm"
+      class="back-degree"
+    />
   </div>
 </template>
 <script>
@@ -10,7 +13,10 @@ import CongruencialMultiplicativoAlgo from "@/components/CongruencialMultiplicat
 export default {
   name: "Lineal",
   components: {
-      CongruencialMultiplicativoAlgo
+    CongruencialMultiplicativoAlgo
   }
 };
 </script>
+<style lang="scss" scoped>
+@import '@/scss/_component_layout.scss';
+</style>

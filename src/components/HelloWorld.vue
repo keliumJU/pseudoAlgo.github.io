@@ -12,13 +12,16 @@
           <li>Congruencial Aditivo</li>
           <li>Congruencial Multiplicativo</li>
         </ul>
-      <h3>Propiedades de los numeros pseudoaleatorios</h3>
+        <h3>Propiedades de los numeros pseudoaleatorios</h3>
         <ul>
           <li>Media</li>
           <li>Varianza</li>
         </ul>
-        <b-button variant="info" href="https://es.wikipedia.org/wiki/N%C3%BAmero_pseudoaleatorio#:~:text=Las%20secuencias%20de%20n%C3%BAmeros%20pseudo,producen%20siempre%20el%20mismo%20resultado."
-          target="_blank">Mas informacion</b-button
+        <b-button
+          variant="info"
+          href="https://es.wikipedia.org/wiki/N%C3%BAmero_pseudoaleatorio#:~:text=Las%20secuencias%20de%20n%C3%BAmeros%20pseudo,producen%20siempre%20el%20mismo%20resultado."
+          target="_blank"
+          >Mas informacion</b-button
         >
       </b-jumbotron>
     </b-container>
@@ -52,20 +55,20 @@ import { BContainer, BJumbotron, BButton } from "bootstrap-vue";
 export default {
   name: "HelloWorld",
   props: {
-    msg: String,
+    msg: String
   },
   data() {
     return {
       intro:
         "PseudoAlgo es una pagina web que simula algoritmos encargados de generar numeros pseudoaleatorios " +
-        "basados en unas simples formulas matematicas.",
+        "basados en unas simples formulas matematicas."
     };
   },
   components: {
     BContainer,
     BJumbotron,
-    BButton,
-  },
+    BButton
+  }
 };
 </script>
 
@@ -82,5 +85,4 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-
 </style>

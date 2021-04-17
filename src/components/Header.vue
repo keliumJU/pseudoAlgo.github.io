@@ -1,35 +1,41 @@
 <template>
   <b-navbar type="dark" variant="dark" fixed="top" class="pt-3 pb-3">
     <b-navbar-nav>
-    <b-navbar-brand to="/">
-      <img src="../assets/logoalgo.png" class="d-inline-block align-top" alt="PseudoAlgoLogo" width="30" height="30" >
-      PseudoAlgo
-    </b-navbar-brand>
+      <b-navbar-brand to="/">
+        <img
+          src="../assets/logoalgo.png"
+          class="d-inline-block align-top"
+          alt="PseudoAlgoLogo"
+          width="30"
+          height="30"
+        />
+        PseudoAlgo
+      </b-navbar-brand>
       <!-- Navbar dropdowns -->
       <b-nav-item-dropdown text="Algorithms" right>
         <b-dropdown-item to="/cuadrados-medios">
-            cuadrados Medios
+          cuadrados Medios
         </b-dropdown-item>
         <b-dropdown-item to="/productos-medios">
-            Productos Medios
+          Productos Medios
         </b-dropdown-item>
         <b-dropdown-item to="/lineal-algo">
-            Lineal Algorthm
+          Lineal Algorthm
         </b-dropdown-item>
         <b-dropdown-item to="/congruencial-aditivo">
-            Congruencial Aditivo
+          Congruencial Aditivo
         </b-dropdown-item>
         <b-dropdown-item to="/congruencial-multiplicativo">
-            Congruencial Multiplicativo
+          Congruencial Multiplicativo
         </b-dropdown-item>
         <b-dropdown-item to="/multiplicador-constante">
-            Multiplicador Constante
+          Multiplicador Constante
         </b-dropdown-item>
-       <b-dropdown-item to="/congruencial-cuadratico">
-            Congruencial Cuadratico 
+        <b-dropdown-item to="/congruencial-cuadratico">
+          Congruencial Cuadratico
         </b-dropdown-item>
-       <b-dropdown-item to="/blum-blumShub">
-            Blum Blum y Shub 
+        <b-dropdown-item to="/blum-blumShub">
+          Blum Blum y Shub
         </b-dropdown-item>
       </b-nav-item-dropdown>
 
@@ -41,16 +47,23 @@
 </template>
 
 <script>
-import { BDropdownItem, BNavbar, BNavItem, BNavItemDropdown, BNavbarNav, BNavbarBrand } from 'bootstrap-vue'
+import {
+  BDropdownItem,
+  BNavbar,
+  BNavItem,
+  BNavItemDropdown,
+  BNavbarNav,
+  BNavbarBrand
+} from "bootstrap-vue";
 export default {
   name: "Header",
-  components:{
-      BDropdownItem,
-      BNavbar,
-      BNavItem,
-      BNavItemDropdown,
-      BNavbarNav,
-      BNavbarBrand
+  components: {
+    BDropdownItem,
+    BNavbar,
+    BNavItem,
+    BNavItemDropdown,
+    BNavbarNav,
+    BNavbarBrand
   }
 };
 </script>

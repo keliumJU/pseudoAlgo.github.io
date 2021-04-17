@@ -1,6 +1,8 @@
 <template>
   <div class="cuad-medios">
-    <CpMultiplicadorConst msg="Welcome to Multiplier Const" />
+    <CpMultiplicadorConst msg="Welcome to Multiplier Const" 
+      class="back-degree" 
+    />
   </div>
 </template>
 
@@ -11,7 +13,10 @@ import CpMultiplicadorConst from "@/components/CpMultiplicadorConst.vue";
 export default {
   name: "MultiplicadorConstante",
   components: {
-      CpMultiplicadorConst
+    CpMultiplicadorConst
   }
 };
 </script>
+<style lang="scss" scoped>
+@import '@/scss/_component_layout.scss';
+</style>

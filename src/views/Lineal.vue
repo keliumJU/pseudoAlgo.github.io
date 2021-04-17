@@ -1,6 +1,9 @@
 <template>
-  <div class="lineal-algo">
-    <LinealAlgo msg="Welcome to Lineal Algorithm" style="background-color:blueviolet;"/>
+  <div>
+    <LinealAlgo
+      msg="Welcome to Lineal Algorithm"
+      class="back-degree" 
+    />
   </div>
 </template>
 <script>
@@ -10,13 +13,11 @@ import LinealAlgo from "@/components/LinealAlgo.vue";
 export default {
   name: "Lineal",
   components: {
-      LinealAlgo
+    LinealAlgo
   }
 };
 </script>
 
-<style scoped>
-.lienal-algo{
-  background-color:blueviolet;
-}
+<style lang="scss" scoped>
+@import '@/scss/_component_layout.scss';
 </style>

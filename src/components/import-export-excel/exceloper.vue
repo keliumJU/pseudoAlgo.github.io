@@ -1,9 +1,9 @@
 <template>
-<div>
+  <div>
     <v-btn color="primary" dark class="mb-2" @click="exportExcel">
       Exportar
     </v-btn>
-</div>
+  </div>
 </template>
 
 <script>
@@ -13,12 +13,12 @@ export default {
   props: {
     numsAle: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     nameFile: {
       type: String,
-      default: "nums-ale",
-    },
+      default: "nums-ale"
+    }
   },
   methods: {
     exportExcel() {
@@ -33,12 +33,12 @@ export default {
       const workBook = {
         SheetNames: ["jsonWorkSheet"], // sheet name
         Sheets: {
-          jsonWorkSheet: jsonWorkSheet,
-        },
+          jsonWorkSheet: jsonWorkSheet
+        }
       };
 
       XLSX.writeFile(workBook, this.nameFile + ".xlsx");
-    },
-  },
+    }
+  }
 };
 </script>

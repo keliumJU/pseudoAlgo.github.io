@@ -1,6 +1,9 @@
 <template>
-  <div class="cuad-medios">
-    <CuadradosMediosAlgo msg="Welcome to Scuare Mid" />
+  <div>
+    <CuadradosMediosAlgo 
+        msg="Welcome to Scuare Mid" 
+        class="back-degree"
+    />
   </div>
 </template>
 
@@ -11,7 +14,10 @@ import CuadradosMediosAlgo from "@/components/CuadradosMediosAlgo.vue";
 export default {
   name: "CuadradosMedios",
   components: {
-      CuadradosMediosAlgo
+    CuadradosMediosAlgo
   }
 };
 </script>
+<style lang="scss" scoped>
+  @import '@/scss/_component_layout.scss';
+</style>

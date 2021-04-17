@@ -5,21 +5,21 @@
         <ul>
           <li class="col-heading">Location Data</li>
           <li>
-              <b-icon-telephone-fill></b-icon-telephone-fill>
+            <b-icon-telephone-fill></b-icon-telephone-fill>
             <a href="tel:3203719763">3203719763</a>
           </li>
           <li>
-              <b-icon-chat-text-fill></b-icon-chat-text-fill>
+            <b-icon-chat-text-fill></b-icon-chat-text-fill>
             <a href="sms:3203719763">SMS Message</a>
           </li>
           <li>
-              <b-icon-geo-alt-fill></b-icon-geo-alt-fill>
+            <b-icon-geo-alt-fill></b-icon-geo-alt-fill>
             <a href="https://goo.gl/maps/VB94qdzGTgo554JUA" target="_blank"
               >Address</a
             >
           </li>
           <li>
-              <b-icon-mailbox2></b-icon-mailbox2>
+            <b-icon-mailbox2></b-icon-mailbox2>
             <a href="mailto:zeyeju@gmail.com?subject=Email Subject line"
               >Email Us</a
             >
@@ -33,14 +33,18 @@
       <div class="col-xs-12 col-md-5 text-center">
         <ul class="vertical-links small">
           <li>
-              <privacy/>
+            <privacy />
+          </li>
+
           <li>
-              <terms-conditions/>
+            <terms-conditions />
           </li>
           <li>
-              <site-map/>
+            <site-map />
           </li>
-          <li><a><router-link to="/about">Contact Us</router-link></a></li>
+          <li>
+            <a><router-link to="/about">Contact Us</router-link></a>
+          </li>
         </ul>
       </div>
       <div class="col-xs-12 col-md-2 text-center">
@@ -50,8 +54,12 @@
         <ul>
           <li class="small">
             © Copyright 2019 Website by
-            <a href="https://github.com/keliumJU" target="_blank" style="color: white; font-weight: 500">Equipo 7</a>. All
-            Rights reserved.
+            <a
+              href="https://github.com/keliumJU"
+              target="_blank"
+              style="color: white; font-weight: 500"
+              >Equipo 7</a
+            >. All Rights reserved.
           </li>
         </ul>
       </div>
@@ -64,11 +72,16 @@
 <script>
 //import { } from 'bootstrap-vue'
 //Nuevos iconos agregados
-import {BIconTelephoneFill,BIconChatTextFill,BIconGeoAltFill, BIconMailbox2} from "bootstrap-vue";
-import Privacy  from "./Privacy.vue";
+import {
+  BIconTelephoneFill,
+  BIconChatTextFill,
+  BIconGeoAltFill,
+  BIconMailbox2
+} from "bootstrap-vue";
+import Privacy from "./Privacy.vue";
 //import {TermsConditions} from "@/components/TermnsConditions.vue";
-import TermsConditions from './TermsConditions.vue';
-import SiteMap from './SiteMap.vue';
+import TermsConditions from "./TermsConditions.vue";
+import SiteMap from "./SiteMap.vue";
 
 export default {
   name: "Footer",

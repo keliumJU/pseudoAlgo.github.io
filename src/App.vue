@@ -1,13 +1,15 @@
 <template>
-  <div id="app" style="background-color:red;">
-<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <Head/>
-    <br>
-    <br>
-    <br>
-    <br>
+  <div id="app" >
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <Head />
+    <br />
+    <br />
+    <br />
     <router-view />
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +48,5 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-.myfont{
-  font-family: 'Brush Script MT', cursive;
-}
+
 </style>

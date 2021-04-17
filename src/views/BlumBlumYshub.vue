@@ -1,6 +1,8 @@
 <template>
-  <div class="blumblumshub-algo">
-    <bbsa msg="Welcome to Blum Blum y Shub Algorithm" />
+  <div>
+    <bbsa msg="Welcome to Blum Blum y Shub Algorithm" 
+      class="back-degree" 
+    />
   </div>
 </template>
 <script>
@@ -10,7 +12,10 @@ import bbsa from "@/components/BlumBlumYshubAlgo.vue";
 export default {
   name: "bbs",
   components: {
-      bbsa 
+    bbsa
   }
 };
 </script>
+<style lang="scss" scoped>
+@import '@/scss/_component_layout.scss';
+</style>

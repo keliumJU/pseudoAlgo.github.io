@@ -2,61 +2,63 @@
   <v-app>
     <v-container>
       <v-row>
+        <v-col></v-col>
         <v-col>
-          <h1 class="myfont">{{ msg }}</h1>
+          <h1 class="my-font">{{ msg }}</h1>
+        </v-col>
+        <v-col></v-col>
+      </v-row>
+      <!--  <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">-->
+      <v-row class="justify-center pa-10 properties-head">
+        <v-col>
+          <v-card class="pa-0">
+            <v-card-title class="justify-center"
+              >Ingresa los valores para el algoritmo lineal</v-card-title
+            >
+            <v-card-text>
+              <v-form>
+                <v-text-field
+                  v-model="valX0"
+                  label="X0"
+                  :rules="X0Rules"
+                  error-count="2"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  v-model="valA"
+                  label="A"
+                  :rules="ARules"
+                  error-count="3"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  v-model="valM"
+                  label="M"
+                  :rules="MRules"
+                  error-count="3"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  v-model="valC"
+                  label="C"
+                  :rules="CRules"
+                  error-count="3"
+                  required
+                ></v-text-field>
+              </v-form>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn v-on:click="linealAlgorithm" color="primary"> Go </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col>
+          <Propiedades :itemsp="items" />
+        </v-col>
+        <v-col>
+          <Propiedades :itemsp="items" />
         </v-col>
       </v-row>
-    <!--  <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">-->
-        <v-row class="justify-center pa-10" style="background-color:blue;">
-          <v-col>
-            <v-card class="pa-0">
-              <v-card-title class="justify-center"
-                >Ingresa los valores para el algoritmo lineal</v-card-title
-              >
-              <v-card-text>
-                <v-form>
-                  <v-text-field
-                    v-model="valX0"
-                    label="X0"
-                    :rules="X0Rules"
-                    error-count="2"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="valA"
-                    label="A"
-                    :rules="ARules"
-                    error-count="3"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="valM"
-                    label="M"
-                    :rules="MRules"
-                    error-count="3"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="valC"
-                    label="C"
-                    :rules="CRules"
-                    error-count="3"
-                    required
-                  ></v-text-field>
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn v-on:click="linealAlgorithm" color="primary"> Go </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-          <v-col>
-            <Propiedades :itemsp="items" />
-          </v-col>
-          <v-col>
-            <Propiedades :itemsp="items" />
-          </v-col>
-        </v-row>
       <!--</v-parallax>-->
       <v-row>
         <v-col class="rounded-md pa-4 ma-2">
@@ -64,6 +66,7 @@
             :desserts="items"
             :headers="headers"
             namefile="linealAlgo"
+            nameTable="Algoritmo Lineal"
           />
         </v-col>
       </v-row>
@@ -81,31 +84,31 @@ export default {
   name: "LinealAlgo",
   components: {
     Propiedades,
-    TablaDim,
+    TablaDim
   },
   props: {
-    msg: String,
+    msg: String
   },
   data() {
     return {
       X0Rules: [
-        (v) => !!v || "X0 Es requerido",
-        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        v => !!v || "X0 Es requerido",
+        v => /^\d+$/.test(v) || "Debe ser un numero entero"
       ],
       ARules: [
-        (v) => !!v || "A Es requerido",
-        (v) => this.despejarK(v),
-        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        v => !!v || "A Es requerido",
+        v => this.despejarK(v),
+        v => /^\d+$/.test(v) || "Debe ser un numero entero"
       ],
       MRules: [
-        (v) => !!v || "M Es requerido",
-        (v) => this.despejarM(v),
-        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        v => !!v || "M Es requerido",
+        v => this.despejarM(v),
+        v => /^\d+$/.test(v) || "Debe ser un numero entero"
       ],
       CRules: [
-        (v) => !!v || "C Es requerido",
-        (v) => this.relativePrime(v),
-        (v) => /^\d+$/.test(v) || "Debe ser un numero entero",
+        v => !!v || "C Es requerido",
+        v => this.relativePrime(v),
+        v => /^\d+$/.test(v) || "Debe ser un numero entero"
       ],
       valX0: 0,
       valA: 0,
@@ -115,16 +118,16 @@ export default {
         {
           text: "N~",
           align: "start",
-          value: "Xn",
+          value: "Xn"
         },
         {
           text: "(aXn+c)mod(m)",
-          value: "formula",
+          value: "formula"
         },
         {
           text: "Numero Aleatorio",
-          value: "num",
-        },
+          value: "num"
+        }
       ],
       items: [
         { Xn: 0, formula: 0, num: 0 },
@@ -137,12 +140,12 @@ export default {
         { Xn: 0, formula: 0, num: 0 },
         { Xn: 0, formula: 0, num: 0 },
         { Xn: 0, formula: 0, num: 0 },
-        { Xn: 0, formula: 0, num: 0 },
-      ],
+        { Xn: 0, formula: 0, num: 0 }
+      ]
     };
   },
   methods: {
-    despejarK: function (val) {
+    despejarK: function(val) {
       //DespejamosK de la formula a=1+4K
       //a-1=4.k => (a-1)/4=k
       let k = (val - 1) / 4;
@@ -151,7 +154,7 @@ export default {
       }
       return `"${val}" no se cumple en a=1+4k`;
     },
-    relativePrime: function (val) {
+    relativePrime: function(val) {
       //validar c si es relativamente primo a m solo para numeros menores a 100
       //Es relativamente primo si solo el numero 1 es su primo en comun
       //val=parseInt(this.valC)
@@ -183,7 +186,7 @@ export default {
       }
       return true;
     },
-    despejarM: function (val) {
+    despejarM: function(val) {
       val = parseInt(this.valM);
       let logVal = Math.log2(val);
       if (logVal % 1 == 0) {
@@ -194,15 +197,15 @@ export default {
       }
       return `"${val}" no se cumple en m=2^g`;
     },
-    fillArray: function (m) {
+    fillArray: function(m) {
       for (let i = 0; i < m - 10; i++) {
         this.items.push({ Xn: 0, formula: 0, num: 0 });
       }
     },
-    financial: function (x) {
+    financial: function(x) {
       return Number.parseFloat(x).toFixed(3);
     },
-    linealAlgorithm: function () {
+    linealAlgorithm: function() {
       this.valX0 = parseInt(this.valX0);
       this.valA = parseInt(this.valA);
       this.valC = parseInt(this.valC);
@@ -220,25 +223,12 @@ export default {
           this.items[i].formula / (this.valM - 1)
         );
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="scss" scoped>
+  @import '@/scss/_fonts_component_algo.scss';
 </style>

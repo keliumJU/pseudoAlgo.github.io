@@ -1,6 +1,9 @@
 <template>
-  <div class="cuad-medios">
-    <ProductosMediosAlgo msg="Welcome to Product Mid" />
+  <div>
+    <ProductosMediosAlgo 
+      msg="Welcome to Product Mid"
+      class="back-degree" 
+     />
   </div>
 </template>
 
@@ -11,7 +14,12 @@ import ProductosMediosAlgo from "@/components/ProductosMediosAlgo.vue";
 export default {
   name: "ProductosMedios",
   components: {
-     ProductosMediosAlgo 
+    ProductosMediosAlgo
   }
 };
 </script>
+
+
+<style lang="scss" scoped>
+  @import '@/scss/_component_layout.scss';
+</style>

@@ -12,9 +12,14 @@
         class="mb-2"
       >
         <b-card-text>
-          Estudiante poco apasionado de sistemas. 
+          Estudiante poco apasionado de sistemas.
         </b-card-text>
-        <b-button href="https://github.com/keliumJU" target="_blank" variant="primary">Go somewhere</b-button>
+        <b-button
+          href="https://github.com/keliumJU"
+          target="_blank"
+          variant="primary"
+          >Go somewhere</b-button
+        >
       </b-card>
     </div>
     <div class="cart-ab">
@@ -28,9 +33,14 @@
         class="mb-2"
       >
         <b-card-text>
-          Estudiante aun mas poco apasionado de sistemas. 
+          Estudiante aun mas poco apasionado de sistemas.
         </b-card-text>
-        <b-button  href="https://github.com/Edijosmen" target="_blank" variant="primary">Go somewhere</b-button>
+        <b-button
+          href="https://github.com/Edijosmen"
+          target="_blank"
+          variant="primary"
+          >Go somewhere</b-button
+        >
       </b-card>
     </div>
     <div class="cart-ab">
@@ -46,10 +56,15 @@
         <b-card-text>
           Estudiante poco apasionado de sistemas que dice ser del grupo.
         </b-card-text>
-        <b-button href="https://github.com/luis-carlos-jo" target="_blank" variant="primary">Go somewhere</b-button>
+        <b-button
+          href="https://github.com/luis-carlos-jo"
+          target="_blank"
+          variant="primary"
+          >Go somewhere</b-button
+        >
       </b-card>
     </div>
-<div class="cart-cent">
+    <div class="cart-cent">
       <b-card
         title="Ingeniera Adriana Navia"
         img-src="https://i.pinimg.com/originals/06/0a/62/060a62948fcd2fd94559eddfb7d99438.png"
@@ -60,22 +75,22 @@
         class="mb-2"
       >
         <b-card-text>
-          Es la docente encargada de impartir la materia de simulacion, gracias ing.
+          Es la docente encargada de impartir la materia de simulacion, gracias
+          ing.
         </b-card-text>
         <b-button href="#" variant="primary">Go somewhere</b-button>
       </b-card>
     </div>
-
   </div>
 </template>
 
-<style scoped>   
-  .cart-ab{
-    display: inline-block;
-  }
-  .cart-cent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+<style scoped>
+.cart-ab {
+  display: inline-block;
+}
+.cart-cent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

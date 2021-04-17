@@ -1,6 +1,9 @@
 <template>
-  <div class="congru-cuad">
-    <congruencial-cuadratico-algo msg="Welcome to Quadratic Congruential Algorithm" />
+  <div>
+    <congruencial-cuadratico-algo
+      msg="Welcome to Quadratic Congruential Algorithm"
+      class="back-degree"
+    />
   </div>
 </template>
 <script>
@@ -10,7 +13,10 @@ import CongruencialCuadraticoAlgo from "@/components/CongruencialCuadraticoAlgo.
 export default {
   name: "CongruencialCuadratico",
   components: {
-      CongruencialCuadraticoAlgo
+    CongruencialCuadraticoAlgo
   }
 };
 </script>
+<style lang="scss" scoped>
+@import '@/scss/_component_layout.scss';
+</style>
